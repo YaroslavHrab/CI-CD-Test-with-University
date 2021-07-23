@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <title>Lessons</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h2>All lessons</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="text-center"> lesson_id </th>
+                            <th class="text-center"> subject_id </th>
+                            <th class="text-center"> group_id </th>
+                            <th class="text-center"> lesson_number </th>
+                            <th class="text-center"> begin_time </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${lessons.empty}">
+                            <td colspan="6"> No Teachers </td>
+                        </tr>
+                        <tr th:each="lesson : ${lessons}">
+                            <td align="center"><span th:text="${lesson.getId()}"></span></td>
+                            <td align="center"><span th:text="${lesson.getSubject_id()}"></span></td>
+                            <td align="center"><span th:text="${lesson.getGroup_id()}"></span></td>
+                            <td align="center"><span th:text="${lesson.getLessonNumber()}"></span></td>
+                            <td align="center"><span th:text="${lesson.getBeginingTime()}"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

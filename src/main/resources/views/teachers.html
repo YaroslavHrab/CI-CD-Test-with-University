@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <title>Teachers</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h2>All teachers</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="text-center"> teacher_id </th>
+                            <th class="text-center"> teacher_first_name </th>
+                            <th class="text-center"> teacher_last_name </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${teachers.empty}">
+                            <td colspan="6"> No Teachers </td>
+                        </tr>
+                        <tr th:each="teacher : ${teachers}">
+                            <td align="center"><span th:text="${teacher.getId()}"></span></td>
+                            <td align="center"><span th:text="${teacher.getName()}"></span></td>
+                            <td align="center"><span th:text="${teacher.getSurname()}"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

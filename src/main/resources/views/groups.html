@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <title>Groups</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h2>All Groups</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="text-center"> group_id </th>
+                            <th class="text-center"> group_name </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${groups.empty}">
+                            <td colspan="6"> No Groups </td>
+                        </tr>
+                        <tr th:each="group : ${groups}">
+                            <td align="center"><span th:text="${group.getId()}"></span></td>
+                            <td align="center"><span th:text="${group.getName()}"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

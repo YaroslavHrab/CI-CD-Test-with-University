@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <title>Subjects</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h2>All subjects</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="text-center"> subject_id </th>
+                            <th class="text-center"> subject_name </th>
+                            <th class="text-center"> subject_desc </th>
+                            <th class="text-center"> teacher_id </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${subjects.empty}">
+                            <td colspan="6"> No Subjects </td>
+                        </tr>
+                        <tr th:each="subject : ${subjects}">
+                            <td align="center"><span th:text="${subject.getId()}"></span></td>
+                            <td align="center"><span th:text="${subject.getName()}"></span></td>
+                            <td align="center"><span th:text="${subject.getDescription()}"></span></td>
+                            <td align="center"><span th:text="${subject.getTeacher_id()}"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

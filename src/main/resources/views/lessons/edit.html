@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit lesson info</title>
+<style>
+select {
+	width: 200px;
+}
+</style>
+
+<script>
+window.addEventListener('load', () => {
+	  const now = new Date();
+	  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+	  document.getElementById('datetime').value = now.toISOString().substring(0,16);
+	});
+</script>
+
+</head>
+<body>
+	<br />
+	<h2>Edit info info</h2>
+	<form action="/cruds/lessons/update" th:object="${lesson}" method="post">
+		<table>
+			<tr>
+				<td>Id:</td>
+				<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+			</tr>
+			<tr>
+				<td>Subject:</td>
+				<td>
+					<div th:object="${subjects}">
+						<select name="subjectId" th:field="${lesson.subject_id}">
+							<option th:each="subject : ${subjects}" th:value="${subject.id}"
+								th:text="${subject.name}"></option>
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Group:</td>
+				<td>
+					<div th:object="${groups}">
+						<select name="groupId" th:field="${lesson.group_id}">
+							<option th:each="group : ${groups}" th:value="${group.id}"
+								th:text="${group.name}"></option>
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Lesson number:</td>
+				<td>
+					<div>
+						<select name="lessonNumber" th:field="*{lessonNumber}">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Beginning time:</td>
+				<td><input type="datetime-local" name="beginningTime" id="datetime" /></td>
+			</tr>
+		</table>
+		<br />
+		<button>Update</button>
+	</form>
+</body>
+</html>

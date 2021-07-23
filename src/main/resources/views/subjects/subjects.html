@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Subjects</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+
+select {
+	width: 177px;
+}
+</style>
+</head>
+<body>
+	<form action="/cruds/subjects/newsubject">
+		<button>
+			<h3>Add new subject</h3>
+		</button>
+	</form>
+	<div>
+		<div>
+			<h2>All subjects</h2>
+			<table>
+				<thead>
+					<tr>
+						<th class="text-center">subject_id</th>
+						<th class="text-center">subject_name</th>
+						<th class="text-center">subject_desc</th>
+						<th class="text-center">teacher_id</th>
+						<th class="text-center">Update subject</th>
+						<th class="text-center">Delete subject</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${subjects.empty}">
+						<td colspan="6">No Subjects</td>
+					</tr>
+					<tr th:each="subject : ${subjects}">
+						<td align="center"><span th:text="${subject.getId()}"></span></td>
+						<td align="center"><span th:text="${subject.getName()}"></span></td>
+						<td align="center"><span
+							th:text="${subject.getDescription()}"></span></td>
+						<td align="center"><span th:text="${subject.getTeacher_id()}"></span></td>
+						<td align="center"><a
+							th:href="'/cruds/subjects/edit/'+${subject.id}"> Update</a></td>
+						<td align="center"><a
+							th:href="'/cruds/subjects/delete/'+${subject.id}"
+							onclick="return confirm('Are you sure?')"> Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

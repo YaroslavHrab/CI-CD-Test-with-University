@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add new student</title>
+<style>
+select {
+	width: 177px;
+}
+</style>
+</head>
+<body>
+	<br />
+	<h2>Add new student</h2>
+	<form action="/cruds/students/addstudent" th:object="${student}" method="post">
+		<table>
+			<tr>
+				<td>Group:</td>
+				<td>
+					<div th:object="${groups}">
+						<select name="groupId" th:field="${student.group_id}">
+							<option th:each="group : ${groups}" th:value="${group.id}"
+								th:text="${group.name}"></option>
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{name}" /></td>
+				<td><div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div></td>
+			</tr>
+			<tr>
+				<td>Surname:</td>
+				<td><input type="text" th:field="*{surname}" /></td>
+				<td><div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div></td>
+			</tr>
+		</table>
+		<br />
+		<button>Add</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,4 @@
+TEACHERS:
+  - teacher_id: 1
+    teacher_first_name: "Test1"
+    teacher_last_name: "Test1"

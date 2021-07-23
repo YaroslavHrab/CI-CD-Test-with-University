@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lessons</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+
+select {
+	width: 200px;
+}
+</style>
+</head>
+<body>
+	<form action="/cruds/lessons/newlesson">
+		<button onclick="first()">
+			<h3>Add new lesson</h3>
+		</button>
+	</form>
+	<div>
+		<div>
+			<h2>All lessons</h2>
+			<table>
+				<thead>
+					<tr>
+						<th class="text-center">lesson_id</th>
+						<th class="text-center">subject_id</th>
+						<th class="text-center">group_id</th>
+						<th class="text-center">lesson_number</th>
+						<th class="text-center">begin_time</th>
+						<th class="text-center">Update lesson</th>
+						<th class="text-center">Delete lesson</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${lessons.empty}">
+						<td colspan="6">No Teachers</td>
+					</tr>
+					<tr th:each="lesson : ${lessons}">
+						<td align="center"><span th:text="${lesson.getId()}"></span></td>
+						<td align="center"><span th:text="${lesson.getSubject_id()}"></span></td>
+						<td align="center"><span th:text="${lesson.getGroup_id()}"></span></td>
+						<td align="center"><span
+							th:text="${lesson.getLessonNumber()}"></span></td>
+						<td align="center"><span
+							th:text="${lesson.getBeginingTime()}"></span></td>
+						<td align="center"><a
+							th:href="'/cruds/lessons/edit/'+${lesson.id}"> Update</a></td>
+						<td align="center"><a
+							th:href="'/cruds/lessons/delete/'+${lesson.id}"
+							onclick="return confirm('Are you sure?')"> Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

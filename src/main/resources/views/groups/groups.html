@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Groups</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<form action="/cruds/groups/newgroup">
+ 		<button>
+			<h3>Add new group</h3>
+		</button>
+	</form>
+	<div>
+		<div>
+			<h2>All Groups</h2>
+			<table>
+				<thead>
+					<tr>
+						<th class="text-center">group_id</th>
+						<th class="text-center">group_name</th>
+						<th class="text-center">Update group</th>
+						<th class="text-center">Delete group</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${groups.empty}">
+						<td colspan="6">No Groups</td>
+					</tr>
+					<tr th:each="group : ${groups}">
+						<td align="center"><span th:text="${group.getId()}"></span></td>
+						<td align="center"><span th:text="${group.getName()}"></span></td>
+						<td align="center"><a
+							th:href="'/cruds/groups/edit/'+${group.id}"> Update</a></td>
+						<td align="center"><a
+							th:href="'/cruds/groups/delete/'+${group.id}" onclick = "return confirm('Are you sure?')">
+								Delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Students timetable</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<button onclick="first()">
+		<h3>View timetable</h3>
+	</button>
+	<div id="create" style="display: none;">
+		<br />
+		<form action="/studentsTimetable/onMonth">
+			<table>
+				<tr>
+					<td>Group:</td>
+					<td>
+						<div th:object="${groups}">
+							<select name="groupId">
+								<option th:each="group : ${groups}" th:value="${group.id}"
+									th:text="${group.name}"></option>
+							</select>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<button>View on month</button>
+		</form>
+		<br />
+		<form action="/studentsTimetable/onDay">
+			<table>
+				<tr>
+					<td>Group:</td>
+					<td>
+						<div th:object="${groups}">
+							<select name="groupId">
+								<option th:each="group : ${groups}" th:value="${group.id}"
+									th:text="${group.name}"></option>
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Beginning time:</td>
+					<td><input type="date" name="beginningTime" />
+				</tr>
+			</table>
+			<br />
+			<button>View on day</button>
+		</form>
+	</div>
+	<script>
+		function first() {
+			var x = document.getElementById("create");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
+
+	</script>
+	<div>
+		<div>
+			<h2>Timetable</h2>
+			<table>
+				<thead>
+					<tr>
+						<th class="text-center">Beginning time</th>
+						<th class="text-center">Subject</th>
+						<th class="text-center">Teacher</th>
+						<th class="text-center">Group</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${lessons.empty}">
+						<td align="center" colspan="6">No lessons found</td>
+					</tr>
+					<tr th:each="lesson : ${lessons}">
+						<td align="center"><span th:text="${lesson.getBeginingTime()}"></span></td>
+						<td align="center"><span th:text="${lesson.getSubject().getName()}"></span></td>
+						<td align="center"><span th:text="${lesson.getSubject().getTeacher().getName()} + ' '
+						 + ${lesson.getSubject().getTeacher().getSurname()}"></span></td>
+						<td align="center"><span th:text="${lesson.getGroup().getName()}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

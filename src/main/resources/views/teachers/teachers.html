@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Teachers</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<form action="/cruds/teachers/newteacher">
+		<button>
+			<h3>Add new teacher</h3>
+		</button>
+	</form>
+	<div>
+		<div>
+			<h2>All teachers</h2>
+			<table>
+				<thead>
+					<tr>
+						<th class="text-center">teacher_id</th>
+						<th class="text-center">teacher_first_name</th>
+						<th class="text-center">teacher_last_name</th>
+						<th class="text-center">Update teacher</th>
+						<th class="text-center">Update student</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${teachers.empty}">
+						<td colspan="6">No Teachers</td>
+					</tr>
+					<tr th:each="teacher : ${teachers}">
+						<td align="center"><span th:text="${teacher.getId()}"></span></td>
+						<td align="center"><span th:text="${teacher.getName()}"></span></td>
+						<td align="center"><span th:text="${teacher.getSurname()}"></span></td>
+						<td align="center"><a
+							th:href="'/cruds/teachers/edit/'+${teacher.id}"> Update</a></td>
+
+
+						<td align="center"><a
+							th:href="'/cruds/teachers/delete/'+${teacher.id}"
+							onclick="return confirm('Are you sure?')"> Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <title>Students</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h2>All students</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="text-center"> student_id </th>
+                            <th class="text-center"> group_id </th>
+                            <th class="text-center"> first_name </th>
+                            <th class="text-center"> last_name </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${students.empty}">
+                            <td colspan="6"> No Students </td>
+                        </tr>
+                        <tr th:each="student : ${students}">
+                            <td align="center"><span th:text="${student.getId()}"></span></td>
+                            <td align="center"><span th:text="${student.getGroup_id()}"></span></td>
+                            <td align="center"><span th:text="${student.getName()}"></span></td>
+                            <td align="center"><span th:text="${student.getSurname()}"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

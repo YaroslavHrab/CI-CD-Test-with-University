@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add new group</title>
+</head>
+<body>
+	<br />
+	<h2>Add new group</h2>
+	<form action="/cruds/groups/addgroup" th:object="${group}" method="post">
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{name}" /></td>
+				<td><div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div></td>
+			</tr>
+		</table>
+		<br />
+		<button>Add</button>
+	</form>
+</body>
+</html>

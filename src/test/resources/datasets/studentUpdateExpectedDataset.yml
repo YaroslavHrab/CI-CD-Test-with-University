@@ -1,0 +1,9 @@
+STUDENTS:
+  - student_id: 1
+    group_id: 1
+    first_name: "Nottest"
+    last_name: "Nottest"
+  - student_id: 2
+    group_id: 1
+    first_name: "Test2"
+    last_name: "Test2"

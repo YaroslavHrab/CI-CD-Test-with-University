@@ -1,0 +1,5 @@
+STUDENTS:
+  - student_id: 1
+    group_id: 1
+    first_name: "Test1"
+    last_name: "Test1"

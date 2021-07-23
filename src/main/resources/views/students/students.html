@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Students</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+
+select {
+	width: 177px;
+}
+</style>
+</head>
+<body>
+	<form action="/cruds/students/newstudent">
+		<button>
+			<h3>Add new students</h3>
+		</button>
+	</form>
+	<div>
+		<div>
+			<h2>All students</h2>
+			<table>
+				<thead>
+					<tr>
+						<th class="text-center">student_id</th>
+						<th class="text-center">group_id</th>
+						<th class="text-center">first_name</th>
+						<th class="text-center">last_name</th>
+						<th class="text-center">Update student</th>
+						<th class="text-center">Delete student</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${students.empty}">
+						<td colspan="6">No Students</td>
+					</tr>
+					<tr th:each="student : ${students}">
+						<td align="center"><span th:text="${student.getId()}"></span></td>
+						<td align="center"><span th:text="${student.getGroup_id()}"></span></td>
+						<td align="center"><span th:text="${student.getName()}"></span></td>
+						<td align="center"><span th:text="${student.getSurname()}"></span></td>
+						<td align="center"><a
+							th:href="'/cruds/students/edit/'+${student.id}"> Update</a></td>
+						<td align="center"><a
+							th:href="'/cruds/students/delete/'+${student.id}"
+							onclick="return confirm('Are you sure?')"> Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

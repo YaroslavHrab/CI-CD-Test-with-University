@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add new subject</title>
+<style>
+select {
+	width: 177px;
+}
+</style>
+</head>
+<body>
+	<br />
+	<h2>Add new subject</h2>
+	<form action="/cruds/subjects/addsubject" th:object="${subject}" method="post">
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{name}" /></td>
+				<td><div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div></td>
+			</tr>
+			<tr>
+				<td>Description:</td>
+				<td><input type="text" th:field="*{description}" /></td>
+			</tr>
+			<tr>
+				<td>Teacher:</td>
+				<td>
+					<div th:object="${teachers}">
+							<select name="teacherId" th:field="${subject.teacher_id}">
+								<option th:each="teacher : ${teachers}" th:value="${teacher.id}"
+									th:text="${teacher.name} + ' ' + ${teacher.surname}"></option>
+							</select>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<br />
+		<button>Add</button>
+	</form>
+</body>
+</html>

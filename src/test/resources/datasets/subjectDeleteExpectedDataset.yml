@@ -1,0 +1,5 @@
+SUBJECTS:
+  - subject_id: 1
+    subject_name: "Test1"
+    subject_desc: "Desc"
+    teacher_id: 1

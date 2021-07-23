@@ -1,0 +1,6 @@
+GROUPS:
+  - group_id: 1
+    group_name: "Test1"
+  - group_id: 2
+    group_name: "Test2"
+

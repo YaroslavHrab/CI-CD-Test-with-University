@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit teacher info</title>
+</head>
+<body>
+	<br />
+	<h2>Edit teacher info</h2>
+	<form action="/cruds/teachers/update" th:object="${teacher}" method="post">
+		<table>
+			<tr>
+				<td>Id:</td>
+				<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+			</tr>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{name}" /></td>
+				<td><div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div></td>
+			</tr>
+			<tr>
+				<td>Surname:</td>
+				<td><input type="text" th:field="*{surname}" /></td>
+				<td><div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div></td>
+			</tr>
+		</table>
+		<br />
+		<button>Update</button>
+	</form>
+</body>
+</html>

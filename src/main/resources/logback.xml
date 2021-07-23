@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true">
+
+	<appender name="Console"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%-30(%d{HH:mm:ss.SSS} [%thread]) %-5level %logger{32} - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+
+	<appender name="app"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>target/appLogFile.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>appLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+			<maxHistory>30</maxHistory>
+			<totalSizeCap>3GB</totalSizeCap>
+
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%date{ISO8601} [%thread] %-5level %logger{40} - %msg%n%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="database"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>target/dbLogFile.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>dbLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+			<maxHistory>30</maxHistory>
+			<totalSizeCap>3GB</totalSizeCap>
+
+		</rollingPolicy>
+
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%date{ISO8601} [%thread] %-5level %logger{40} - %msg%n%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	 <root level="debug">
+        <appender-ref ref="Console" />
+    </root>
+
+	<logger name="ua.com.foxminded.university" level="debug">
+		<appender-ref ref="app" />
+	</logger>
+
+	<logger name="ua.com.foxminded.university.util.Validator">
+		<appender-ref ref="database" />
+	</logger>
+
+	<logger name="ua.com.foxminded.university.dao" level="debug">
+		<appender-ref ref="database" />
+	</logger>
+</configuration>
