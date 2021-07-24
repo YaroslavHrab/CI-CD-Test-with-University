@@ -15,8 +15,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Test env
-
-        run: 
+        run: |
           if [ "$TEST" == "TEST_env" ]
            then
              echo "Test_env"
