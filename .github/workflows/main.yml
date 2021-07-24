@@ -19,7 +19,8 @@ jobs:
         run: 
           if [ "$TEST" == "TEST_env" ]
            then
-             echo Test_env
+             echo "Test_env"
+           fi
         env: 
           TEST: ${{secrets.TEST}}
 
