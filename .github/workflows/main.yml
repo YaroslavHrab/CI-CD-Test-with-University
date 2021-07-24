@@ -15,7 +15,7 @@ jobs:
         
       - name: Test env
         run: 
-          if["$TEST" == "TEST_env"]
+          if [ "$TEST" == "TEST_env" ]
            then
              echo Test_env
            fi
