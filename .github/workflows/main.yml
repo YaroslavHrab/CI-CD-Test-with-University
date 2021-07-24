@@ -8,17 +8,18 @@ on:
 jobs:
   ci-cd:
     runs-on: ubuntu-latest
-
+    environment:
+        name: Test
     steps:
       - name: Copy files from GitHub 
         uses: actions/checkout@v2
         
       - name: Test env
+
         run: 
           if [ "$TEST" == "TEST_env" ]
            then
              echo Test_env
-           fi
         env: 
           TEST: ${{secrets.TEST}}
 
