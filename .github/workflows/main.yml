@@ -14,7 +14,10 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Test env
-        run: echo $TEST
+        run: if["$TEST" -eq "TEST_env"]
+             then
+               echo Test_env
+             fi
         env: 
           TEST: ${{secrets.TEST}}
 
