@@ -14,10 +14,11 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Test env
-        run: if["$TEST" == "TEST_env"]
-             then
-               echo Test_env
-             fi
+        run: 
+          if["$TEST" == "TEST_env"]
+           then
+             echo Test_env
+           fi
         env: 
           TEST: ${{secrets.TEST}}
 
