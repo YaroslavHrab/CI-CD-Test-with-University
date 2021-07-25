@@ -20,6 +20,9 @@ jobs:
       - name: Run mvn test
         run: mvn clean test
         
+      - name: UTC
+        run: sudo timedatectl set-timezone UTC
+        
       - name: Run mvn integration-test
         run: mvn clean integration-test
         
