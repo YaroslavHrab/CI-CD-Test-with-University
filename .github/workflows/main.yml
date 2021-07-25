@@ -19,3 +19,6 @@ jobs:
         
       - name: Run mvn test
         run: mvn clean test
+        
+      - name: Run mvn integration-test
+        run: mvn clean integration-test
