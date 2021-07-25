@@ -33,6 +33,6 @@ public class CommandLineIOTest {
 
         commandLineInterfaceInstance.print("hello");
 
-        assertEquals("hello", outContent.toString().replaceAll("\\r|\\n", ""));
+        assertEquals("hello", outContent.toString().replaceAll("\r|\n", ""));
     }
 }
