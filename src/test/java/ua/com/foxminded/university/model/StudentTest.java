@@ -14,7 +14,7 @@ public class StudentTest {
     public void generateStudent() {
         student = new Student("Ivan", "Ivanov");
         student.setId(1L);
-        student.setGroup_id(1L);
+        student.setGroupId(1L);
     }
 
     @Test
@@ -45,13 +45,13 @@ public class StudentTest {
     
     @Test
     public void getGroup_Id_shouldReturnGroupId() {
-        assertEquals(1, student.getGroup_id());
+        assertEquals(1, student.getGroupId());
     }
     
     @Test
     public void setId_shouldSetValueToGroupId() {
-        student.setGroup_id(2L);
+        student.setGroupId(2L);
         
-        assertEquals(2, student.getGroup_id());
+        assertEquals(2, student.getGroupId());
     }
 }

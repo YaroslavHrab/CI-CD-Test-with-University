@@ -26,7 +26,7 @@ select {
 				<td>Teacher:</td>
 				<td>
 					<div th:object="${teachers}">
-							<select name="teacherId" th:field="${subject.teacher_id}">
+							<select name="teacherId" th:field="${subject.teacherId}">
 								<option th:each="teacher : ${teachers}" th:value="${teacher.id}"
 									th:text="${teacher.name} + ' ' + ${teacher.surname}"></option>
 							</select>

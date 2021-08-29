@@ -20,7 +20,7 @@ public interface LessonDao extends JpaRepository<Lesson, Long> {
 
 	List<Lesson> findByGroup(Group group);
 	
-	@Query(value = "SELECT lesson FROM Lesson lesson WHERE lesson.group_id = :id AND CAST(lesson.beginingTime AS date)"
+	@Query(value = "SELECT lesson FROM Lesson lesson WHERE lesson.groupId = :id AND CAST(lesson.beginingTime AS date)"
 			+ " =  CAST(:date AS date)")
 	List<Lesson> getLessonsForGroupOnDay(@Param("id") Long groupId, @Param("date") LocalDate date);
 

@@ -49,7 +49,7 @@ public class SubjectControllerTest {
     public void whenNewSubjectRequestToSubjectControllerIsValid_thenCorrectResponse() throws Exception {
         mockMvc.perform(get("/cruds/subjects/newsubject")).andDo(print())
                 .andExpect(model().attribute("subject", hasProperty("name", nullValue())))
-                .andExpect(model().attribute("subject", hasProperty("teacher_id", nullValue())))
+                .andExpect(model().attribute("subject", hasProperty("teacherId", nullValue())))
                 .andExpect(model().attribute("subject", hasProperty("id", nullValue())))
                 .andExpect(view().name("subjects/add"));
     }
@@ -57,18 +57,18 @@ public class SubjectControllerTest {
     @Test
 	public void whenAddSubjectRequestToSubjectControllerIsInvalid_thenErrorsPresent() throws Exception {
         Subject subject = new Subject("test", "Desk");
-        subject.setTeacher_id(-1L);
+        subject.setTeacherId(-1L);
 		mockMvc.perform(post("/cruds/subjects/addsubject")
 			    .flashAttr("subject", subject))
 		        .andDo(print())
 				.andExpect(model().attributeHasErrors("subject"))
-				.andExpect(model().attributeHasFieldErrors("subject", "name", "teacher_id"));
+				.andExpect(model().attributeHasFieldErrors("subject", "name", "teacherId"));
 	}
 
 	@Test
 	public void whenAddSubjectRequestToSubjectControllerIsValid_thenCorrectResponse() throws Exception {
 	    Subject subject = new Subject("Test", "Desk");
-	    subject.setTeacher_id(1L);
+	    subject.setTeacherId(1L);
 		mockMvc.perform(post("/cruds/subjects/addsubject")
 		        .flashAttr("subject", subject))
 		        .andDo(print())
@@ -79,18 +79,18 @@ public class SubjectControllerTest {
 	@Test
 	public void whenUpdateSubjectRequestToSubjectControllerIsInvalid_thenErrorsPresent() throws Exception {
 	    Subject subject = new Subject("test", "Desk");
-        subject.setTeacher_id(-1L);
+        subject.setTeacherId(-1L);
         mockMvc.perform(post("/cruds/subjects/update")
                 .flashAttr("subject", subject))
                 .andDo(print())
                 .andExpect(model().attributeHasErrors("subject"))
-                .andExpect(model().attributeHasFieldErrors("subject", "name", "teacher_id"));
+                .andExpect(model().attributeHasFieldErrors("subject", "name", "teacherId"));
 	}
 
 	@Test
 	public void whenUpdateSubjectsRequestToSubjectControllerIsValid_thenCorrectResponse() throws Exception {
 	    Subject subject = new Subject("Test", "Desk");
-	    subject.setTeacher_id(1L);
+	    subject.setTeacherId(1L);
         mockMvc.perform(post("/cruds/subjects/addsubject")
                 .flashAttr("subject", subject))
                 .andDo(print())

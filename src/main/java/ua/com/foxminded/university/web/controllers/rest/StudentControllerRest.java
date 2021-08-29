@@ -46,7 +46,7 @@ public class StudentControllerRest {
         Student student = studentService.findOne(id);
         student.setName(newStudent.getName());
         student.setSurname(newStudent.getSurname());
-        student.setGroup_id(newStudent.getGroup_id());
+        student.setGroupId(newStudent.getGroupId());
         studentService.updateStudent(student);
     }
     

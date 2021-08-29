@@ -62,7 +62,7 @@ public class StudentControllerRestTest {
 
 	@Test
 	public void whenNewStudentRequestToStudentControllerIsInvalid_thenErrorsPresent() throws Exception {
-	    String student = "{\"name\": \"\",\"surname\": \"\",\"group_id\": -1}";
+	    String student = "{\"name\": \"\",\"surname\": \"\",\"groupId\": -1}";
 		mockMvc.perform(post("/m.cruds/students")
 				.content(student)
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))
@@ -83,7 +83,7 @@ public class StudentControllerRestTest {
 
 	@Test
 	public void whenUpdateStudentRequestToStudentControllerIsInvalid_thenErrorsPresent() throws Exception {
-	    String student = "{\"name\": \"\",\"surname\": \"\",\"group_id\": -1}";
+	    String student = "{\"name\": \"\",\"surname\": \"\",\"groupId\": -1}";
         mockMvc.perform(put("/m.cruds/students/1")
                 .content(student)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))

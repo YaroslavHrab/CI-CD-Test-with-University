@@ -23,8 +23,8 @@
                         </tr>
                         <tr th:each="lesson : ${lessons}">
                             <td align="center"><span th:text="${lesson.getId()}"></span></td>
-                            <td align="center"><span th:text="${lesson.getSubject_id()}"></span></td>
-                            <td align="center"><span th:text="${lesson.getGroup_id()}"></span></td>
+                            <td align="center"><span th:text="${lesson.getSubjectId()}"></span></td>
+                            <td align="center"><span th:text="${lesson.getGroupId()}"></span></td>
                             <td align="center"><span th:text="${lesson.getLessonNumber()}"></span></td>
                             <td align="center"><span th:text="${lesson.getBeginingTime()}"></span></td>
                         </tr>

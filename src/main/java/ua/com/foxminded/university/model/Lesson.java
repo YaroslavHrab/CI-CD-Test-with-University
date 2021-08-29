@@ -40,10 +40,10 @@ public class Lesson {
     private Long id;
     @Positive(message = "Group id must be positive integer")
     @Column(name = "group_id", insertable = false, updatable = false)
-    private Long group_id;
+    private Long groupId;
     @Positive(message = "Subject id must be positive integer")
     @Column(name = "subject_id", insertable = false, updatable = false)
-    private Long subject_id;
+    private Long subjectId;
 
     public Lesson() {
         

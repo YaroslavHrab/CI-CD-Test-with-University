@@ -64,7 +64,7 @@ public class SubjectControllerRestTest {
 	@Test
 	public void whenNewSubjectRequestToSubjectControllerIsInvalid_thenErrorsPresent() throws Exception {
 	    String subject = "{\"name\": \"\",\"description\": \"Very important subject\",\"teacher\": {" + 
-                "\"name\": \"Manuel\",\"surname\": \"Murphy\",\"id\": 1},\"teacher_id\": -1 }";
+                "\"name\": \"Manuel\",\"surname\": \"Murphy\",\"id\": 1},\"teacherId\": -1 }";
 		mockMvc.perform(post("/m.cruds/subjects")
 				.content(subject)
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))
@@ -83,7 +83,7 @@ public class SubjectControllerRestTest {
 	@Test
 	public void whenUpdateSubjectRequestToSubjectControllerIsInvalid_thenErrorsPresent() throws Exception {
         String subject = "{\"name\": \"\",\"description\": \"Very important subject\",\"teacher\": {" + 
-                "\"name\": \"Manuel\",\"surname\": \"Murphy\",\"id\": 1},\"teacher_id\": -1 }";
+                "\"name\": \"Manuel\",\"surname\": \"Murphy\",\"id\": 1},\"teacherId\": -1 }";
         mockMvc.perform(put("/m.cruds/subjects/1")
                 .content(subject)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))

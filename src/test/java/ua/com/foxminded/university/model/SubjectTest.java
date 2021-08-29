@@ -17,7 +17,7 @@ public class SubjectTest {
         subject = new Subject("Math", "Test desc");
         subject.setTeacher(new Teacher("Ivan", "Ivanov"));
         subject.setId(1L);
-        subject.setTeacher_id(1L);
+        subject.setTeacherId(1L);
     }
 
     @Test
@@ -70,13 +70,13 @@ public class SubjectTest {
     
     @Test
     public void getTeacher_Id_shouldReturnTeacherId() {
-        assertEquals(1, subject.getTeacher_id());
+        assertEquals(1, subject.getTeacherId());
     }
     
     @Test
     public void getTeacher_Id_shouldSetValueToTeacherId() {
-        subject.setTeacher_id(2L);
+        subject.setTeacherId(2L);
         
-        assertEquals(2, subject.getTeacher_id());
+        assertEquals(2, subject.getTeacherId());
     }
 }

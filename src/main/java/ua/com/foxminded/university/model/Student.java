@@ -36,7 +36,7 @@ public class Student {
     private Long id;
     @Column(name = "group_id")
     @Positive(message = "Group id must be positive integer")
-    private Long group_id;
+    private Long groupId;
     
     public Student() {
         

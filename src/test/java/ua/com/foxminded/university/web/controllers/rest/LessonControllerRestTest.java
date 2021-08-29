@@ -68,7 +68,7 @@ public class LessonControllerRestTest {
 	@Test
 	public void whenNewLessonRequestToLessonControllerIsInvalid_thenErrorsPresent() throws Exception {
         String lesson = "{\"lessonNumber\": 10,\"beginingTime\": \"2021-03-04T08:30:00\"," +  
-                "\"group_id\": -1,\"subject_id\": -1}";
+                "\"groupId\": -1,\"subjectId\": -1}";
 		mockMvc.perform(post("/m.cruds/lessons")
 				.content(lesson)
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))
@@ -86,7 +86,7 @@ public class LessonControllerRestTest {
 	@Test
 	public void whenUpdateLessonRequestToLessonControllerIsInvalid_thenErrorsPresent() throws Exception {
         String lesson = "{\"lessonNumber\": 10,\"beginingTime\": \"2021-03-04T08:30:00\"," +  
-                "\"group_id\": -1,\"subject_id\": -1}";
+                "\"groupId\": -1,\"subjectId\": -1}";
         mockMvc.perform(put("/m.cruds/lessons/1")
                 .content(lesson)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))

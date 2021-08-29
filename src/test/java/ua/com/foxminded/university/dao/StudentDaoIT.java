@@ -47,7 +47,7 @@ public class StudentDaoIT {
     @ExpectedDataSet(value = "studentAddExpectedDataset.yml", ignoreCols = "student_id")
     void addStudent_shouldAddStudentToDatabase() {
         Student student = new Student("Test", "Test");
-        student.setGroup_id(1L);
+        student.setGroupId(1L);
         
         studentDao.save(student);
     }

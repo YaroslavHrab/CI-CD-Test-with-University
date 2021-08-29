@@ -51,19 +51,19 @@ public class StudentControllerTest {
                 .andExpect(model().attribute("student", hasProperty("name", nullValue())))
                 .andExpect(model().attribute("student", hasProperty("surname", nullValue())))
                 .andExpect(model().attribute("student", hasProperty("id", nullValue())))
-                .andExpect(model().attribute("student", hasProperty("group_id", nullValue())))
+                .andExpect(model().attribute("student", hasProperty("groupId", nullValue())))
                 .andExpect(view().name("students/add"));
     }
 
     @Test
 	public void whenAddStudentRequestToStudentControllerIsInvalid_thenErrorsPresent() throws Exception {
         Student student = new Student("test", "test");
-        student.setGroup_id(-1L);
+        student.setGroupId(-1L);
 		mockMvc.perform(post("/cruds/students/addstudent")
 			    .flashAttr("student", student))
 		        .andDo(print())
 				.andExpect(model().attributeHasErrors("student"))
-				.andExpect(model().attributeHasFieldErrors("student", "name", "surname", "group_id"));
+				.andExpect(model().attributeHasFieldErrors("student", "name", "surname", "groupId"));
 	}
 
 	@Test
@@ -79,12 +79,12 @@ public class StudentControllerTest {
 	@Test
 	public void whenUpdateStudentRequestToStudentControllerIsInvalid_thenErrorsPresent() throws Exception {
 	    Student student = new Student("test", "test");
-        student.setGroup_id(-1L);
+        student.setGroupId(-1L);
         mockMvc.perform(post("/cruds/students/update")
                 .flashAttr("student", student))
                 .andDo(print())
                 .andExpect(model().attributeHasErrors("student"))
-                .andExpect(model().attributeHasFieldErrors("student", "name", "surname", "group_id"));
+                .andExpect(model().attributeHasFieldErrors("student", "name", "surname", "groupId"));
 	}
 
 	@Test

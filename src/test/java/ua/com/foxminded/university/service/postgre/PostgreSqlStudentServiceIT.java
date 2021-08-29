@@ -46,7 +46,7 @@ public class PostgreSqlStudentServiceIT {
     @ExpectedDataSet(value = "studentAddExpectedDataset.yml", ignoreCols = "student_id")
     void addStudent_shouldAddStudentToDatabase() {
         Student student = new Student("Test", "Test");
-        student.setGroup_id(1L);
+        student.setGroupId(1L);
         
         studentService.addStudent(student);
     }

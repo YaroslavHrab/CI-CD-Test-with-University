@@ -65,22 +65,22 @@ public class LessonControllerTest {
     @Test
 	public void whenAddLessonRequestToLessonControllerIsInvalid_thenErrorsPresent() throws Exception {
         Lesson lesson = new Lesson();
-        lesson.setGroup_id(-1L);
-        lesson.setSubject_id(-1L);
+        lesson.setGroupId(-1L);
+        lesson.setSubjectId(-1L);
         lesson.setLessonNumber(10);
 		mockMvc.perform(post("/cruds/lessons/addlesson")
 			    .flashAttr("lesson", lesson)
 		        .param("beginningTime", LocalDateTime.now().toString()))
 		        .andDo(print())
 				.andExpect(model().attributeHasErrors("lesson"))
-				.andExpect(model().attributeHasFieldErrors("lesson", "subject_id", "group_id", "lessonNumber"));
+				.andExpect(model().attributeHasFieldErrors("lesson", "subjectId", "groupId", "lessonNumber"));
 	}
 
 	@Test
 	public void whenAddLessonRequestToLessonControllerIsValid_thenCorrectResponse() throws Exception {
 	    Lesson lesson = new Lesson();
-        lesson.setGroup_id(1L);
-        lesson.setSubject_id(1L);
+        lesson.setGroupId(1L);
+        lesson.setSubjectId(1L);
         lesson.setLessonNumber(5);
 		mockMvc.perform(post("/cruds/lessons/addlesson")
 		        .flashAttr("lesson", lesson)
@@ -93,22 +93,22 @@ public class LessonControllerTest {
 	@Test
 	public void whenUpdateLessonRequestToLessonControllerIsInvalid_thenErrorsPresent() throws Exception {
 	    Lesson lesson = new Lesson();
-        lesson.setGroup_id(-1L);
-        lesson.setSubject_id(-1L);
+        lesson.setGroupId(-1L);
+        lesson.setSubjectId(-1L);
         lesson.setLessonNumber(10);
         mockMvc.perform(post("/cruds/lessons/update")
                 .flashAttr("lesson", lesson)
                 .param("beginningTime", LocalDateTime.now().toString()))
                 .andDo(print())
                 .andExpect(model().attributeHasErrors("lesson"))
-                .andExpect(model().attributeHasFieldErrors("lesson", "subject_id", "group_id", "lessonNumber"));
+                .andExpect(model().attributeHasFieldErrors("lesson", "subjectId", "groupId", "lessonNumber"));
 	}
 
 	@Test
 	public void whenUpdateSubjectsRequestToLessonControllerIsValid_thenCorrectResponse() throws Exception {
 	    Lesson lesson = new Lesson();
-        lesson.setGroup_id(1L);
-        lesson.setSubject_id(1L);
+        lesson.setGroupId(1L);
+        lesson.setSubjectId(1L);
         lesson.setLessonNumber(5);
         mockMvc.perform(post("/cruds/lessons/update")
                 .flashAttr("lesson", lesson)

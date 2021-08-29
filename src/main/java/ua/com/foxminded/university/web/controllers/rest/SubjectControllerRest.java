@@ -46,7 +46,7 @@ public class SubjectControllerRest {
         Subject subject = subjectService.findOne(id);
         subject.setName(newSubject.getName());
         subject.setTeacher(newSubject.getTeacher());
-        subject.setTeacher_id(newSubject.getTeacher_id());
+        subject.setTeacherId(newSubject.getTeacherId());
         subject.setDescription(newSubject.getDescription());
         subjectService.updateSubject(subject);
     }

@@ -63,8 +63,8 @@ public class LessonController {
             return "subjects/add";
         }
         lesson.setBeginingTime(LocalDateTime.parse(beginningTime));
-        lesson.setSubject(subjectService.findOne(lesson.getSubject_id()));
-        lesson.setGroup(groupService.findOne(lesson.getGroup_id()));
+        lesson.setSubject(subjectService.findOne(lesson.getSubjectId()));
+        lesson.setGroup(groupService.findOne(lesson.getGroupId()));
         lessonService.addLesson(lesson);
         return "redirect:/cruds/lessons";
     }
@@ -88,8 +88,8 @@ public class LessonController {
             return "subjects/add";
         }
         lesson.setBeginingTime(LocalDateTime.parse(beginningTime));
-        lesson.setGroup(groupService.findOne(lesson.getGroup_id()));
-        lesson.setSubject(subjectService.findOne(lesson.getSubject_id()));
+        lesson.setGroup(groupService.findOne(lesson.getGroupId()));
+        lesson.setSubject(subjectService.findOne(lesson.getSubjectId()));
         lessonService.updateLesson(lesson);
         return "redirect:/cruds/lessons";
     }

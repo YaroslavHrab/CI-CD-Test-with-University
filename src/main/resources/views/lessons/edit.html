@@ -30,7 +30,7 @@ window.addEventListener('load', () => {
 				<td>Subject:</td>
 				<td>
 					<div th:object="${subjects}">
-						<select name="subjectId" th:field="${lesson.subject_id}">
+						<select name="subjectId" th:field="${lesson.subjectId}">
 							<option th:each="subject : ${subjects}" th:value="${subject.id}"
 								th:text="${subject.name}"></option>
 						</select>
@@ -41,7 +41,7 @@ window.addEventListener('load', () => {
 				<td>Group:</td>
 				<td>
 					<div th:object="${groups}">
-						<select name="groupId" th:field="${lesson.group_id}">
+						<select name="groupId" th:field="${lesson.groupId}">
 							<option th:each="group : ${groups}" th:value="${group.id}"
 								th:text="${group.name}"></option>
 						</select>

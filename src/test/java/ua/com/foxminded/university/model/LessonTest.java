@@ -24,8 +24,8 @@ public class LessonTest {
         lesson.setGroup(group);
         lesson.setSubject(subject);
         lesson.setId(1L);
-        lesson.setGroup_id(1L);
-        lesson.setSubject_id(1L);
+        lesson.setGroupId(1L);
+        lesson.setSubjectId(1L);
     }
     
     @Test
@@ -69,25 +69,25 @@ public class LessonTest {
     
     @Test
     public void getGroupId_shouldReturnGroupId() {
-        assertEquals(1, lesson.getGroup_id());
+        assertEquals(1, lesson.getGroupId());
     }
     
     @Test
     public void setGroup_Id_shouldSetValueToGroupId() {
-        lesson.setGroup_id(2L);
+        lesson.setGroupId(2L);
         
-        assertEquals(2, lesson.getGroup_id());
+        assertEquals(2, lesson.getGroupId());
     }
     
     @Test
     public void getSubjectId_shouldReturnSubjectId() {
-        assertEquals(1, lesson.getSubject_id());
+        assertEquals(1, lesson.getSubjectId());
     }
     
     @Test
     public void setSubject_Id_shouldSetValueToSubjectId() {
-        lesson.setSubject_id(2L);
+        lesson.setSubjectId(2L);
         
-        assertEquals(2, lesson.getSubject_id());
+        assertEquals(2, lesson.getSubjectId());
     }
 }

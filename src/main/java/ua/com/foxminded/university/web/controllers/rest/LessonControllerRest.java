@@ -46,10 +46,10 @@ public class LessonControllerRest {
         Lesson lesson = lessonService.findOne(id);
         lesson.setBeginingTime(newLesson.getBeginingTime());
         lesson.setGroup(newLesson.getGroup());
-        lesson.setGroup_id(newLesson.getGroup_id());
+        lesson.setGroupId(newLesson.getGroupId());
         lesson.setLessonNumber(newLesson.getLessonNumber());
         lesson.setSubject(newLesson.getSubject());
-        lesson.setSubject_id(newLesson.getGroup_id());
+        lesson.setSubjectId(newLesson.getGroupId());
         lessonService.updateLesson(lesson);
     }
     

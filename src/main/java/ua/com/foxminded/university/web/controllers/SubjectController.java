@@ -52,7 +52,7 @@ public class SubjectController {
 			model.addAttribute("teachers", teacherService.getAllTeachers());
 			return "subjects/add";
 		}
-        subject.setTeacher(teacherService.findOne(subject.getTeacher_id()));
+        subject.setTeacher(teacherService.findOne(subject.getTeacherId()));
         subjectService.addSubject(subject);
         return "redirect:/cruds/subjects";
     }
@@ -72,7 +72,7 @@ public class SubjectController {
 			model.addAttribute("teachers", teacherService.getAllTeachers());
 			return "subjects/edit";
 		}
-        subject.setTeacher(teacherService.findOne(subject.getTeacher_id()));
+        subject.setTeacher(teacherService.findOne(subject.getTeacherId()));
         subjectService.updateSubject(subject);
         return "redirect:/cruds/subjects";
     }

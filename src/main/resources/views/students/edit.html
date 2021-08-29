@@ -21,7 +21,7 @@ select {
 				<td>Group:</td>
 				<td>
 					<div th:object="${groups}">
-						<select name="groupId" th:field="${student.group_id}">
+						<select name="groupId" th:field="${student.groupId}">
 							<option th:each="group : ${groups}" th:value="${group.id}"
 								th:text="${group.name}"></option>
 						</select>

@@ -38,7 +38,7 @@ public class Subject {
     private Long id;
     @Column(name = "teacher_id", insertable = false, updatable = false)
     @Positive(message = "Teacher id must be positive integer")
-    private Long teacher_id;
+    private Long teacherId;
 
     public Subject() {
         
